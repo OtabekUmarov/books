@@ -3,33 +3,32 @@
         <div class="d-flex align-items-center justify-content-between">
             <h5 class="card-title">{{title}}</h5>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCategory">
-                Yangi bo'lim
+                Yangi kategoriya
             </button>
         </div>
-        <table class="table">
+        <div class="table-responsive">
+             <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">№</th>
+                    <th width="1%">№</th>
                     <th scope="col">Nomi</th>
-                    <th scope="col">Kategoriya</th>
                     <th scope="col">Tartibi</th>
-                    <th scope="col">Holat</th>
+                    <th scope="col">Holati</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                {{#each atribut}}
+                {{#each category}}
                 <tr>
                     <th>{{increment @index}}</th>
                     <td>{{title}}</td>
-                    <td>{{category.title}}</td>
                     <td>{{order}}</td>
-                    <td><a href="/admin/atribut/status/{{_id}}">{{{status}}}</a></td>
+                    <td><a href="/admin/category/status/{{_id}}">{{{status}}}</a></td>
                     <td class="ml-auto text-right">
                         <button class="btn btn-warning" onclick="get('{{_id}}')" data-bs-toggle="modal" data-bs-target="#upCategory">
                             <i class="fa fa-pen"></i>
                         </button>
-                        <a href="/admin/atribut/delete/{{_id}}" class="btn btn-danger ml-2" onclick="return confirm('O`chirmoqchimisz?')">
+                        <a href="/admin/category/delete/{{_id}}" class="btn btn-danger ml-2" onclick="return confirm('O`chiraszmi?')">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>
@@ -37,40 +36,28 @@
                 {{/each}}
             </tbody>
         </table>
+        </div>
     </div>
-
 </div>
     <div class="modal fade" id="newCategory" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Bo'lim qo'shish</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yangi kategoriya</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/atribut?_csrf={{csrf}}" method="post" class="needs-validation" novalidate>
+                    <form class="needs-validation"  novalidate  name="newcategory">
                         <div class="form-floating mb-3">
-                            <input type="text" name="title" class="form-control" id="title" required placeholder="NOmini kiriting">
+                            <input type="text" name="title" class="form-control" id="title" required placeholder="Nomini kiriting">
                             <label for="title">Nomi</label>
                             <div class="invalid-feedback">
                             Majburiy
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="validationCustom04" class="form-label">Kategoriyasi</label>
-                            <select name="category" class="form-select" id="validationCustom04" required="">
-                            <option selected="" disabled="" value="">Kategoriyalar ro'yhati</option>
-                            {{#each category}}
-                                <option value="{{_id}}">{{title}}</option>
-                            {{/each}}
-                            </select>
-                            <div class="invalid-feedback">
-                            Tanlang
-                            </div>
-                        </div>
                         <div class="form-floating mb-3">
-                            <input type="number" name="order" class="form-control" id="order"  placeholder="Tartibini yozing">
+                            <input type="number" name="order" class="form-control" id="order"  placeholder="Tartib raqamini kiriting">
                             <label for="order">Tartibi</label>
                         </div>
                         <div class="form-check form-switch">
@@ -96,29 +83,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/atribut/save?_csrf={{csrf}}" method="post" class="needs-validation" novalidate  name="atribut">
+                    <form action="/admin/category/save?_csrf={{csrf}}" method="post" class="needs-validation" validate enctype="multipart/form-data" name="category">
                         <input type="hidden" name="_id" value="">
                         <div class="form-floating mb-3">
                             <input type="text" name="title" class="form-control" id="title" required placeholder="Nomini kiriting">
                             <label for="title">Nomi</label>
-                            <div class="invalid-feedback">
-                            Majburiy
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="validationCustom04" class="form-label">Kategoriyasi</label>
-                            <select name="category" class="form-select" id="validationCustom04" required="">
-                            <option selected="" disabled="" value="">Kategoriyalar ro'yhati</option>
-                            {{#each category}}
-                                <option value="{{_id}}">{{title}}</option>
-                            {{/each}}
-                            </select>
-                            <div class="invalid-feedback">
-                            Tanlang
-                            </div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="number" name="order" class="form-control" id="order"  placeholder="Tartibini yozing">
+                            <input type="number" name="order" class="form-control" id="order"  placeholder="Tartibini kiriting">
                             <label for="order">Tartibi</label>
                         </div>
                         <div class="form-check form-switch">
@@ -128,24 +100,37 @@
                         <button type="submit" class="btn btn-primary">Saqlash</button>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    
-                </div>
+                 <div class="modal-footer"></div>
             </div>
         </div>
     </div>
 
 <script>
-    let form = document.forms.atribut
+    let newcategory = document.forms.newcategory
+
+    newcategory.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        console.log(newcategory)
+        let formData = new FormData(newcategory)
+        fetch('/admin/category',{
+            method:'post',
+            body:formData,
+        }).then(res=>res.json())
+        .then(data=>{
+            location.reload()
+        })
+    })
+
+
+    let form = document.forms.category
     const get = (id) => {
-        fetch(`/api/atribut/get/${id}`)
+        fetch(`/api/category/get/${id}`)
         .then(res => res.json())
-        .then(atribut =>{
-            form._id.value = atribut._id
-            form.category.value = atribut.category
-            form.title.value = atribut.title
-            form.status.checked = atribut.status == 0 ? false : true
-            form.order.value = atribut.order
+        .then(category =>{
+            form._id.value = category._id
+            form.title.value = category.title
+            form.status.checked = category.status == 0 ? false : true
+            form.order.value = category.order
         })
     }
 

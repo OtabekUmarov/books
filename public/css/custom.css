@@ -2,6 +2,9 @@
 .header__btn {
   display: block;
 }
+.card-title {
+  margin-bottom: 0;
+}
 .tr-card-icon{
   width: auto;
   height: auto;
@@ -9,9 +12,34 @@
 .ck.ck-editor__main>.ck-editor__editable {
   height: 200px;
 }
-.download {
-  margin-top: 16px;
-  padding: 10px;
-  border-radius: 5px;
-  background: #e5e5e5;
+.dropdown-menu {
+  padding: 8px 0;
+}
+.page-header .navbar #headerNav>ul>li>a img {
+  width: 55px;
+}
+@media (max-width: 991px) {
+  .table td, 
+  .invoice-table th {
+    white-space: nowrap;
+    padding: 8px 16px !important;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 525px) {
+  .card-body {
+    padding: 15px;
+  }
+  .card-title {
+    font-size: 16px;
+  }
+  .btn {
+    padding: 4px 8px;
+  }
+  .table td, 
+  .invoice-table th {
+    font-size: 12px !important;
+  }
 }

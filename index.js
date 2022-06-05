@@ -16,7 +16,7 @@ const routerList = require('./router')
 const varMiddle = require('./middleware/var') 
 
 const hbs = exphbs.create({
-    defaultLayout: 'main',
+    defaultLayout: 'admin',
     extname: '.hbs'
 })
 hbs.handlebars.registerHelper("increment", function (index) {
@@ -34,7 +34,8 @@ app.use(express.json())
 
 app.use(function (req, res, next) {
 
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, X-CSRF-Token');
@@ -61,7 +62,8 @@ app.use(session({
 
 // app.use(csrf())
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    // origin: 'http://localhost:3000',
+    origin: '*',
     credentials: true,
 }
 app.use(cors(corsOptions));

@@ -7,7 +7,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">№</th>
+                    <th width="1%">№</th>
                     <th scope="col">Ф.И.О</th>
                     <th scope="col">Email</th>
                     <th scope="col">Номер телефон</th>
@@ -18,7 +18,7 @@
             <tbody>
                 {{#each users}}
                 <tr>
-                    <th>{{@index}}</th>
+                    <th>{{increment @index}}</th>
                     <td><img src='/{{img}}' width="50"/> {{name}}</td>
                     <td>{{email}}</td>
                     <td>{{phone}}</td>
@@ -27,7 +27,7 @@
                         <button class="btn btn-warning" onclick="get('{{_id}}')" data-bs-toggle="modal" data-bs-target="#upCategory">
                             <i class="fa fa-pen"></i>
                         </button>
-                        <a href="/user/delete/{{_id}}" class="btn btn-danger ml-2" onclick="return confirm('Вы уверены?')">
+                        <a href="/user/delete/{{_id}}" class="btn btn-danger ml-2" onclick="return confirm('O\'chirmoqchimisiz?')">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>

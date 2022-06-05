@@ -1,11 +1,11 @@
 const {Router} = require('express')
 const router = Router()
-const User = require('../model/user')
-const auth = require('../middleware/auth')
+const User = require('../../model/user')
+const auth = require('../../middleware/auth')
 
 router.get('/',auth,async(req,res)=>{
     let users = await User.find().lean()
-    res.render('users/index',{
+    res.render('admin/users/index',{
         title:'Foydalanuvchilar',
         users
     })
@@ -13,13 +13,14 @@ router.get('/',auth,async(req,res)=>{
 
 
 router.get('/login',(req,res)=>{
-    res.render('users/login',{
+    res.render('admin/users/login',{
+        title:"Tizimga kirish",
         layout:'no-head',
         error: req.flash('error')
     })
 })
 
-router.get('/logout',(req,res)=>{
+router.get('/logout',auth,(req,res)=>{
     req.session.destroy(err=>{
         if (err) throw err
         res.redirect('/admin')
@@ -33,7 +34,7 @@ router.post('/login',(req,res)=>{
         res.redirect('/admin')
     } else {
         req.flash('error','Login parolda yoki sizda xatolik bor!')
-        res.redirect('/user/login')
+        res.redirect('/admin/user/login')
     }
 })
 
