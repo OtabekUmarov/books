@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between">
+            <h3>{{book.title}}</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-12">
+                <img src="/{{book.img}}" alt="" >
+                {{#if book.file}}
+                <button class="btn btn-primary mt-4">
+                    <a href="/{{book.file}}" target="_blank" download="download">Kitobni yuklab olish</a>
+                </button>
+                {{/if}}
+            </div>
+            <div class="col-lg-8 col-md-12 ps-5">
+                {{{book.text}}}
+            </div>
+            <hr>
+            <div class="col-12">
+                <h3 class="text-center mb-0 mt-3">Kitob ma'lumotlari</h3>
+                <table class="table mt-5">
+                    <tbody>
+                        <tr>
+                            <th><b>Bo'lim</b></th>
+                            <th>{{book.atribut.title}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Ishlab chiqarilgan yili</b></th>
+                            <th>{{book.year}} yil</th>
+                        </tr>
+                        <tr>
+                            <th><b>Kitob muallifi</b></th>
+                            <th>{{book.author}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Nashriyot</b></th>
+                            <th>{{book.nashr}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Tarjimon</b></th>
+                            <th>{{book.tarjimon}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Kitob tili</b></th>
+                            <th>{{book.language}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Sahifa soni</b></th>
+                            <th>{{book.count}} bet</th>
+                        </tr>
+                        <tr>
+                            <th><b>Holat</b></th>
+                            <th>{{{book.status}}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Top kitob</b></th>
+                            <th>{{{book.top}}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Yangi kitob</b></th>
+                            <th>{{{book.news}}}</th>
+                        </tr>
+                        <tr>
+                            <th><b>Tartibi</b></th>
+                            <th>{{book.order}}</th>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+        </div>
+    </div>
+</div>

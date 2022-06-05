@@ -1,0 +1,17 @@
+/* Write your custom CSS here */
+.header__btn {
+  display: block;
+}
+.tr-card-icon{
+  width: auto;
+  height: auto;
+}
+.ck.ck-editor__main>.ck-editor__editable {
+  height: 200px;
+}
+.download {
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #e5e5e5;
+}

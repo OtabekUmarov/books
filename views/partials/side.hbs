@@ -1,0 +1,22 @@
+<div class="page-sidebar">
+    <ul class="list-unstyled accordion-menu">
+        <li class="sidebar-title">
+            Menu
+        </li>
+        <li {{#if isHome}}class="active-page"{{/if}}>
+            <a href="/admin"><i data-feather="home"></i>Bosh sahifa</a>
+        </li>
+        <li {{#if isCategory}}class="active-page"{{/if}}>
+            <a href="/admin/category"><i data-feather="grid"></i>Kategoriya</a>
+        </li>
+        <li {{#if isAtribut}}class="active-page"{{/if}}>
+            <a href="/admin/atribut"><i data-feather="list"></i>Bo'limlar</a>
+        </li>
+        <li {{#if isBook}}class="active-page"{{/if}}>
+            <a href="/admin/book"><i data-feather="book"></i>Kitoblar</a>
+        </li>
+        {{!-- <li {{#if isUser}}class="active-page"{{/if}}>
+            <a href="/user"><i data-feather="users"></i>Пользователи</a>
+        </li> --}}
+    </ul>
+</div>
