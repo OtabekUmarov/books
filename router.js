@@ -12,5 +12,6 @@ router.use('/admin/atribut',auth,require('./router/admin/atribut'))
 router.use('/admin/book',auth,require('./router/admin/book'))
 
 // site router
+router.use('/',auth,require('./router/site/page'))
 
 module.exports = router
