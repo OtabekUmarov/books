@@ -119,14 +119,7 @@
 			autoplay: true,
 			cssEase: 'linear'
 		});
-		$('.big-slider').slick({
-			arrows: false,
-			dots: false,
-			infinite: true,
-			speed: 500,
-			autoplay: true,
-			cssEase: 'linear'
-		});
+
 
 	/* ----------------------------------------------------------- */
 	/*  5. MOBILE MENU CLOSE 

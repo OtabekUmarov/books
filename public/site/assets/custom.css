@@ -119,3 +119,7 @@
 .modal-title {
   margin-bottom: 16px;
 }
+.inner {
+  min-height: 100px;
+  background-color: #ff871c;
+}

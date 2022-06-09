@@ -1,0 +1,31 @@
+<div class="inner"></div>
+<div class="model-main">
+	<div class="model-inner">
+		<div class="close-btn" onclick="closeModel()">×</div>
+		<div class="model-wrap">
+			<div class="pop-up-content-wrap">
+				<h3 class="modal-title">Sizga qaysi turdagi kitoblar ro'yhati yoqadi?</h3>
+				{{#each atribut}}
+				<div class="modal-item">
+					<a class="modal-link" href="/category/{{_id}}">{{title}}</a>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="bg-overlay"></div>
+</div>
+
+
+<script>
+	function openModel() {
+		document.querySelector('.model-main').classList.add('model-open');
+	}
+
+	function closeModel() {
+		document.querySelector('.model-main').classList.remove('model-open');
+	}
+	setTimeout(function () {
+				openModel();
+	}, 1000);
+</script>
