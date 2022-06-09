@@ -802,12 +802,17 @@ button:focus {
 	list-style: none;
 	text-align: center;
 }
+.big-slider li {
+	text-align: left;
+}
 
 .mu-testimonial-slide li p {
 	color: #fff;
 	padding: 0 10%;
 }
-
+.big-slider .slick-dots {
+	display: none !important;
+}
 .mu-testimonial-slide .mu-rt-img {
 	border-radius: 50%;
 	width: 100px;
