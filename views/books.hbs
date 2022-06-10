@@ -1,0 +1,26 @@
+<div class="inner">
+</div>
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+          <h2 class="sidebar-title">
+            Bo'limlar
+          </h2>
+				<div class="sidebar">
+					{{#each category}}
+					<div class="modal-item">
+						<a class="modal-link" href="/category/{{_id}}">{{title}}</a>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="col-md-8">
+				{{#each book}}
+					<p>{{title}}</p>
+				{{/each}} 
+			</div>
+		</div>
+	</div>
+</div>
+

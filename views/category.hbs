@@ -1,4 +1,25 @@
-<div class="inner"></div>
+<div class="inner">
+</div>
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="sidebar">
+					{{#each atribut}}
+					<div class="modal-item">
+						<a class="modal-link" href="/genre/{{_id}}">{{title}}</a>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="col-md-8">
+				{{#each book}}
+					<p>{{title}}</p>
+				{{/each}} 
+			</div>
+		</div>
+	</div>
+</div>
 <div class="model-main">
 	<div class="model-inner">
 		<div class="close-btn" onclick="closeModel()">×</div>
@@ -26,6 +47,6 @@
 		document.querySelector('.model-main').classList.remove('model-open');
 	}
 	setTimeout(function () {
-				openModel();
+				{{!-- openModel(); --}}
 	}, 1000);
 </script>

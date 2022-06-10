@@ -106,9 +106,11 @@
   transition: all 0.3s ease-out;
   border-radius: 8px;
 }
+.content .modal-item:first-child,
 .modal-item:hover {
   background-color: #ff871c;
 }
+.content .modal-item:first-child .modal-link,
 .modal-item:hover .modal-link {
   color: #fff;
 }
@@ -122,4 +124,7 @@
 .inner {
   min-height: 100px;
   background-color: #ff871c;
+}
+.content {
+  padding-top: 50px;
 }
