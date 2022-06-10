@@ -28,6 +28,7 @@ router.get('/',async(req,res)=>{
         category
     })
 })
+
 router.get('/category',async(req,res)=>{
     let atribut = await Category.find({status:1}).sort({order:1}).lean()
     let book = await Book.find({status: 1, top:1}).limit(8).sort({order:1}).lean()
