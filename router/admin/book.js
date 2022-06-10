@@ -75,20 +75,29 @@ router.post('/',async(req,res)=>{
         let file = req.files && req.files.file
         const uniquePreffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
         let imgpath = `uploads/${uniquePreffix}_${img.name}`
-        let filepath = `uploads/${uniquePreffix}_${file.name}`
+        let filepath = `uploads/${uniquePreffix}_${file && file.name}`
         data.img = imgpath
         data.file = filepath
         // await newBook.save()
         // res.send(JSON.stringify('ok'))
-        file.mv(filepath,async err => {
-            if (err) res.send(JSON.stringify(err))
+        if (file) {
+            file.mv(filepath,async err => {
+                if (err) res.send(JSON.stringify(err))
+                img.mv(imgpath,async err => {
+                    if (err) res.send(JSON.stringify(err))
+                    let newBook = await new Book(data)
+                    await newBook.save()
+                    res.send(JSON.stringify('ok'))
+                })
+            })
+        } else {
             img.mv(imgpath,async err => {
                 if (err) res.send(JSON.stringify(err))
                 let newBook = await new Book(data)
                 await newBook.save()
                 res.send(JSON.stringify('ok'))
             })
-        })
+        }
 })
 
 
