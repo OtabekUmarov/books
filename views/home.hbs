@@ -1,44 +1,29 @@
 <section id="mu-hero">
 	<div class="container">
 		<div class="mu-testimonial-slide big-slider">
-			<li >
+			{{#each book}}
+			<li>
 				<div class="row">
-					<div class="col-md-6 col-sm-6 col-sm-push-6">
-						<div class="mu-hero-right">
-							<img src="site/assets/images/ebook.png" alt="Ebook img">
+					<div class="col-md-6 col-12">
+						<div class="mu-hero-left">
+							<h1>{{title}}</h1>
+							<div class="content">
+								{{{text}}}
+							</div>
+							<a href="/books/{{_id}}" class="mu-primary-btn">Ko'rish</a>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-sm-push-6">
-						<div class="mu-hero-left">
-							<h1>Perfect Landing Page Template to Present Your eBook</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam saepe, recusandae quidem nulla! Eveniet
-								explicabo perferendis aut, ab quos omnis labore laboriosam quisquam hic deserunt ipsum maxime aspernatur
-								velit impedit.</p>
-							<a href="#" class="mu-primary-btn">Download Now!</a>
-							<span>*Avaliable in PDF, ePUB, Mobi & Kindle.</span>
+					<div class="col-md-6 col-12">
+						<div class="slide-img mu-hero-right">
+							<img  src="/{{img}}" alt="Ebook img">
+							<span style="color: #fff; margin-top:24px; display:block">
+								Kitob muallifi: <b>{{author}}</b>
+							</span>
 						</div>
 					</div>
 				</div>
 			</li>
-			<li >
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-sm-push-6">
-						<div class="mu-hero-right">
-							<img src="site/assets/images/ebook.png" alt="Ebook img">
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 col-sm-push-6">
-						<div class="mu-hero-left">
-							<h1>Perfect Landing Page Template to Present Your eBook</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam saepe, recusandae quidem nulla! Eveniet
-								explicabo perferendis aut, ab quos omnis labore laboriosam quisquam hic deserunt ipsum maxime aspernatur
-								velit impedit.</p>
-							<a href="#" class="mu-primary-btn">Download Now!</a>
-							<span>*Avaliable in PDF, ePUB, Mobi & Kindle.</span>
-						</div>
-					</div>
-				</div>
-			</li>
+			{{/each}}
 		</div>
 	</div>
 </section>
@@ -94,8 +79,6 @@
 
 							</div>
 						</div>
-
-
 					</div>
 				</div>
 			</div>
@@ -498,17 +481,14 @@
 	</div>
 	<div class="bg-overlay"></div>
 </div>
-
-
 <script>
 	function openModel() {
 		document.querySelector('.model-main').classList.add('model-open');
 	}
-
 	function closeModel() {
 		document.querySelector('.model-main').classList.remove('model-open');
 	}
 	setTimeout(function () {
-				openModel();
+				{{!-- openModel(); --}}
 	}, 1000);
 </script>

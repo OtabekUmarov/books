@@ -91,6 +91,7 @@ router.post('/',async(req,res)=>{
                 })
             })
         } else {
+            delete data.file
             img.mv(imgpath,async err => {
                 if (err) res.send(JSON.stringify(err))
                 let newBook = await new Book(data)

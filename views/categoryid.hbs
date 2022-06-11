@@ -1,27 +1,27 @@
 <div class="inner">
 </div>
 <div class="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-					{{#if category.length}}
-						<h2 class="title">
-							Janrlar
-						</h2>
-						<div class="sidebar">
-							{{#each category}}
-								<div class="modal-item">
-									<a class="modal-link" href="/genre/{{_id}}">{{title}}</a>
-								</div>
-							{{/each}}
-						</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+					{{#if atribut.length}}
+        <h2 class="title">
+          Bo'limlar
+        </h2>
+        <div class="sidebar">
+          {{#each atribut}}
+            <div class="modal-item">
+              <a class="modal-link" href="/genre/{{_id}}">{{title}}</a>
+            </div>
+          {{/each}}
+        </div>
 					{{else}}
 						<h2 class="title">
 							Ma'lumot topilmadi
 						</h2>
 					{{/if}}
       </div>
-			<div class="col-md-9">
+      <div class="col-md-9">
         <h2 class="title">
           Yangi kitoblar
         </h2>
@@ -75,7 +75,32 @@
           {{/each}}
         </div>
       </div>
-		</div>
-	</div>
+    </div>
+  </div>
+</div>
+<div class="model-main">
+  <div class="model-inner">
+    <div class="close-btn" onclick="closeModel()">×</div>
+    <div class="model-wrap">
+      <div class="pop-up-content-wrap">
+        <h3 class="modal-title">Sizga qaysi turdagi kitoblar ro'yhati yoqadi?</h3>
+        {{#each atribut}}
+          <div class="modal-item">
+            <a class="modal-link" href="/category/{{_id}}">{{title}}</a>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="bg-overlay"></div>
 </div>
 
+<script>
+  function openModel() {
+  document.querySelector('.model-main').classList.add('model-open'); } function
+  closeModel() {
+  document.querySelector('.model-main').classList.remove('model-open'); }
+  setTimeout(function () { 
+		{{!-- openModel();  --}}
+	}, 1000);
+</script>
