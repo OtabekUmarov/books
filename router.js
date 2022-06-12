@@ -10,8 +10,6 @@ router.use('/admin/user',require('./router/admin/user'))
 router.use('/admin/category',auth,require('./router/admin/category'))
 router.use('/admin/atribut',auth,require('./router/admin/atribut'))
 router.use('/admin/book',auth,require('./router/admin/book'))
-
-// site router
-// router.use('/',require('./router/site/page'))
+router.use('/admin/message',auth,require('./router/admin/message'))
 
 module.exports = router

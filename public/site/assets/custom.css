@@ -956,3 +956,6 @@ body {
   height: 179px;
   overflow: hidden;
 }
+.modal-link {
+  color: #141821;
+}

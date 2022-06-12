@@ -3,15 +3,21 @@ const router = Router()
 const Category = require('../../model/category')
 const Atribut = require('../../model/atribut')
 const Book = require('../../model/book')
+const Message = require('../../model/message')
 
 router.get('/',async(req,res)=>{
     let category = await Category.find({status:1}).sort({order:1}).lean()
     let book = await Book.find({status: 1}).limit(8).sort({order:1}).lean()
+    let booktop = await Book.find({status:1}).lean()
+    let booklen = await Book.find().lean()
+    let atribut = await Atribut.find().lean()
+    booklen = booklen.length
     res.render('home',{
         isHome:true,
         layout: 'site',
+        success: req.flash('success'),
         title: 'Bosh sahifa',
-        category, book
+        category, book, booklen,atribut, booktop
     })
 })
 
@@ -31,6 +37,7 @@ router.get('/admin',async(req,res)=>{
 router.get('/category',async(req,res)=>{
     let atribut = await Category.find({status:1}).sort({order:1}).lean()
     let book = await Book.find({status: 1, news:1}).limit(8).sort({order:1}).lean()
+    
     res.render('category',{
         isHome:true,
         layout: 'site',
@@ -92,5 +99,12 @@ router.get('/books/:id',async(req,res)=>{
         book
     })
 })
+router.post('/message', async (req, res) => {
+    const { fullname,phone,message } = req.body
+    const messages = await new Message({fullname,phone,message})
+    await messages.save()
+    req.flash('success', 'Xabaringiz adminlar uchun yuborildi!')
+    res.redirect('/')
+  })
 
 module.exports = router
