@@ -2,14 +2,255 @@
 </div>
 <div class="content">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-9">
-				<h2 class="title">
-						{{book.title}}
-				</h2>
-				<div class="row">
+
+		<div class="row mb-40">
+			<!-- CAROUSEL NAV  -->
+			<div class="col-xl-5 col-md-6 col-sm-12">
+				<div class="slider-more-about-for-wrapper position-relative">
+					<div
+						class="slider slider-more-about-for swiper-container swiper-container-cube swiper-container-3d swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+						<div class="swiper-wrapper" id="swiper-wrapper-ba461508ff6a5ac8" aria-live="polite"
+							style="margin-left: 80px">
+							<a class="swiper-slide item__main-img swiper-slide-prev"
+								href="/{{book.img}}"
+								role="group" aria-label="1 / 2"
+								style="width: 341px; transform: rotateX(0deg) rotateY(0deg) translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+								<img class="img-fluid"
+									src="/{{book.img}}"
+									alt="Аллан Диб: Бир варақли маркетинг режа">
+							</a>
+							<a class="swiper-slide item__main-img swiper-slide-active"
+								href="/{{book.img}}"
+								role="group" aria-label="2 / 2"
+								style="width: 341px; transform: rotateX(0deg) rotateY(90deg) translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+								<img class="img-fluid"
+									src="/{{book.img}}"
+									alt="Аллан Диб: Бир варақли маркетинг режа">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-5 col-md-6 col-sm-12">
+				<div class="more__about-content">
+					<h1 class="product-title">{{book.author}}: {{book.title}}</h1>
+					<div class="info-box">
+						<div class="product__model">
+							<span class="model__title">Ishlab chiqarilgan yili:</span>
+							<h3 class="model__name">{{book.year}} yil</h3>
+						</div>
+					</div>
+					<div class="info-box">
+						<div class="product__model">
+							<span class="model__title">Nomi:</span>
+							<h3 class="model__name">{{book.title}}</h3>
+						</div>
+					</div>
+					<div class="info-box">
+						<div class="product__model">
+							<span class="model__title">Nashriyot:</span>
+							<h3 class="model__name">{{book.nashr}}</h3>
+						</div>
+					</div>
+					<div class="info-box">
+						<div class="product__model">
+							<span class="model__title">Tarjimon:</span>
+							<h3 class="model__name">{{book.tarjimon}}</h3>
+						</div>
+					</div>
+					<div class="info-box">
+						<div class="product__model">
+							<span class="model__title">Kitob tili:</span>
+							<h3 class="model__name">{{book.language}}</h3>
+						</div>
+					</div>
+					<div class="info-box">
+						<div class="product__model">
+							<span class="model__title">Sahifa soni:</span>
+							<h3 class="model__name">{{book.count}}</h3>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row mb-40">
+			<div class="col-sm-12">
+				<div class="product__description">
+					<h2 class="title">Kitob ma'lumotlari</h2>
+					<div class="description__item">
+						{{{book.text}}}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{!-- <div class="characteristic__content">
+			<div class="row">
+				<!-- FEEDBACKS  -->
+				<div id="feedback" class="col-lg-12 col-md-12">
+					<div class="characteristics feedback__wrapper">
+						<h6>Отзывы</h6>
+						<div class="feedback">
+							<div id="review" data-pjax-container="" data-pjax-push-state="" data-pjax-timeout="1000">
+								<div class="feedback__item">
+									<div class="feedback__header">
+										<div class="feedback__user">
+											<span>Nodirbek</span>
+										</div>
+										<div class="rating">
+											<div class="stars">
+
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+											</div>
+											<div class="date">
+												<span>16-05-2022</span>
+											</div>
+										</div>
+									</div>
+									<div class="feedback__body">
+										<p class="feed__text">Kòproq biznesga oid kitoblar chiqaring sal bòlsa ham hayotda foydasi tegadi
+											foydasiz badiiy ilmiy asarlar kerakmas</p>
+										<div class="answer__item">
+											<div class="answer__admin-pic">
+												<div class="pic" style="background-image: url(https://assets.asaxiy.uz/admin/no-image.jpg);">
+												</div>
+												<div class="asnwer__admin-name">
+													Surayyo </div>
+											</div>
+											<div class="answer__body">
+												<div class="asnwer__admin-text">
+													Assalomu alaykum, Nodirbek, izohingiz uchun rahmat. </div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="feedback__item">
+									<div class="feedback__header">
+										<div class="feedback__user">
+											<span>Elyoz</span>
+										</div>
+										<div class="rating">
+											<div class="stars">
+
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+											</div>
+											<div class="date">
+												<span>12-05-2022</span>
+											</div>
+										</div>
+									</div>
+									<div class="feedback__body">
+										<p class="feed__text">Iltimos Nassim Nicholas Tallebning ham kitoblarini tarjima qilinglar</p>
+										<div class="answer__item">
+											<div class="answer__admin-pic">
+												<div class="pic" style="background-image: url(https://assets.asaxiy.uz/admin/no-image.jpg);">
+												</div>
+												<div class="asnwer__admin-name">
+													Surayyo </div>
+											</div>
+											<div class="answer__body">
+												<div class="asnwer__admin-text">
+													Assalomu alaykum, izohingiz uchun rahmat. </div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="feedback__item">
+									<div class="feedback__header">
+										<div class="feedback__user">
+											<span>Zoyirov Jakhongir</span>
+										</div>
+										<div class="rating">
+											<div class="stars">
+
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="far fa-star"></i></span>
+												<span><i class="far fa-star"></i></span>
+												<span><i class="far fa-star"></i></span>
+												<span><i class="far fa-star"></i></span>
+											</div>
+											<div class="date">
+												<span>25-04-2022</span>
+											</div>
+										</div>
+									</div>
+									<div class="feedback__body">
+										<p class="feed__text">zo'r</p>
+										<div class="answer__item">
+											<div class="answer__admin-pic">
+												<div class="pic" style="background-image: url(https://assets.asaxiy.uz/admin/no-image.jpg);">
+												</div>
+												<div class="asnwer__admin-name">
+													Surayyo </div>
+											</div>
+											<div class="answer__body">
+												<div class="asnwer__admin-text">
+													😊👍 </div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="feedback__item">
+									<div class="feedback__header">
+										<div class="feedback__user">
+											<span>Qosbergen</span>
+										</div>
+										<div class="rating">
+											<div class="stars">
+
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+												<span><i class="fas fa-star"></i></span>
+											</div>
+											<div class="date">
+												<span>19-04-2022</span>
+											</div>
+										</div>
+									</div>
+									<div class="feedback__body">
+										<p class="feed__text">Asaxiy jamoasi ijodkorlariga katta raxmat ajoyib kitoblar uchun, ishlarizga
+											omad ilmiy kitoblar ni koproq tarjima qilsangizlar iltimos </p>
+										<div class="answer__item">
+											<div class="answer__admin-pic">
+												<div class="pic" style="background-image: url(https://assets.asaxiy.uz/admin/no-image.jpg);">
+												</div>
+												<div class="asnwer__admin-name">
+													Surayyo </div>
+											</div>
+											<div class="answer__body">
+												<div class="asnwer__admin-text">
+													Assalomu alaykum, samimiy izohingiz uchun rahmat! </div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="links">
+							<a id="add-review" href="#" class="answer-link" data-toggle="modal" data-target="#give-feedback">Оставить
+								отзыв</a>
+						</div>
+					</div>
+				</div>
+				<!-- FEEDBACKS END  -->
+			</div>
+		</div> --}}
 	</div>
 </div>
